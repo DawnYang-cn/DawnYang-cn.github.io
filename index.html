@@ -185,7 +185,7 @@
 }( typeof global !== "undefined" ? global : this ) );
 </script>
 
-    <link rel="icon" href="/assets/favicon.ico">
+    <link rel="icon" href="/assets/qiyu.jpg">
     <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script">
     <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script">
     <link rel="preload" href="/scripts/main.js" as="script">
@@ -352,6 +352,44 @@ height:50vh;
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
             <main class="main index-page">
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2019/04/06/Wallbreaker-Easy/">
+            
+                <span>Wallbreaker Easy</span>
+        </a>
+        <div class="abstract-content">
+            Wallbreaker0ctf 2019一道php的web题目，利用docker环境复现了一下。首先进入访问题目页面给了如下的提示内容。
+
+从这张图片中我们可以提取到几条有用的信息
+
+题目可能是要我们绕过php的disable_function
+服务器上安装了imagick
+获取flag需要执行readflag命令
+php设置了open basedir限制可读写路径
+好像已经预设了一个后门在这里
+
+首先根据提示尝试是不是真的存在后门，果然是存在后门的。
+
+backdoor=phpinfo();
+
+
+继续查看phpinfo中的有用信息，可以看到他的disable_function列表，op...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/04/06</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
     
     
     
@@ -569,9 +607,16 @@ More...
     
     
     
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 1
+        Total : 2
         </div>
         <!-- search  -->
         
@@ -584,6 +629,11 @@ More...
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/06</span><a class="archive-post-title" href="/2019/04/06/Wallbreaker-Easy/">Wallbreaker Easy</a>
+        </li>
     
     
         <li class="archive-post-item">

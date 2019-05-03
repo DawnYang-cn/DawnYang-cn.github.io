@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <!-- title -->
+
+
+
+
+<!-- keywords -->
+
+
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="author" content="Dawn Yang">
+    <meta name="renderer" content="webkit">
+    <meta name="copyright" content="Dawn Yang">
+    
+    <meta name="keywords" content="hexo,hexo-theme,hexo-blog">
+    
+    <meta name="description" content>
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>An Easy Crypto · DawnYang</title>
+    <style type="text/css">
+    @font-face {
+        font-family: 'Oswald-Regular';
+        src: url("/font/Oswald-Regular.ttf");
+    }
+
+    body {
+        margin: 0;
+    }
+
+    header,
+    footer,
+    .back-top,
+    .sidebar,
+    .container,
+    .site-intro-meta,
+    .toc-wrapper {
+        display: none;
+    }
+
+    .site-intro {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        /* height: 50vh; */
+        overflow: hidden;
+    }
+
+    .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2.5s ease-out 0s infinite;
+    }
+
+    @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+</style>
+
+    <link rel="preload" href="/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="stylesheet" href="/css/mobile.css?v=20180824" media="(max-width: 980px)">
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    
+    <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+/* This file is meant as a standalone workflow for
+- testing support for link[rel=preload]
+- enabling async CSS loading in browsers that do not support rel=preload
+- applying rel preload css once loaded, whether supported or not.
+*/ -->
+<script>
+(function( w ){
+	"use strict";
+	// rel=preload support test
+	if( !w.loadCSS ){
+		w.loadCSS = function(){};
+	}
+	// define on the loadCSS obj
+	var rp = loadCSS.relpreload = {};
+	// rel=preload feature support test
+	// runs once and returns a function for compat purposes
+	rp.support = (function(){
+		var ret;
+		try {
+			ret = w.document.createElement( "link" ).relList.supports( "preload" );
+		} catch (e) {
+			ret = false;
+		}
+		return function(){
+			return ret;
+		};
+	})();
+
+	// if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+	// then change that media back to its intended value on load
+	rp.bindMediaToggle = function( link ){
+		// remember existing media attr for ultimate state, or default to 'all'
+		var finalMedia = link.media || "all";
+
+		function enableStylesheet(){
+			link.media = finalMedia;
+		}
+
+		// bind load handlers to enable media
+		if( link.addEventListener ){
+			link.addEventListener( "load", enableStylesheet );
+		} else if( link.attachEvent ){
+			link.attachEvent( "onload", enableStylesheet );
+		}
+
+		// Set rel and non-applicable media type to start an async request
+		// note: timeout allows this to happen async to let rendering continue in IE
+		setTimeout(function(){
+			link.rel = "stylesheet";
+			link.media = "only x";
+		});
+		// also enable media after 3 seconds,
+		// which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+		setTimeout( enableStylesheet, 3000 );
+	};
+
+	// loop through link elements in DOM
+	rp.poly = function(){
+		// double check this to prevent external calls from running
+		if( rp.support() ){
+			return;
+		}
+		var links = w.document.getElementsByTagName( "link" );
+		for( var i = 0; i < links.length; i++ ){
+			var link = links[ i ];
+			// qualify links to those with rel=preload and as=style attrs
+			if( link.rel === "preload" && link.getAttribute( "as" ) === "style" && !link.getAttribute( "data-loadcss" ) ){
+				// prevent rerunning on link
+				link.setAttribute( "data-loadcss", true );
+				// bind listeners to toggle media back
+				rp.bindMediaToggle( link );
+			}
+		}
+	};
+
+	// if unsupported, run the polyfill
+	if( !rp.support() ){
+		// run once at least
+		rp.poly();
+
+		// rerun poly on an interval until onload
+		var run = w.setInterval( rp.poly, 500 );
+		if( w.addEventListener ){
+			w.addEventListener( "load", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		} else if( w.attachEvent ){
+			w.attachEvent( "onload", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		}
+	}
+
+
+	// commonjs
+	if( typeof exports !== "undefined" ){
+		exports.loadCSS = loadCSS;
+	}
+	else {
+		w.loadCSS = loadCSS;
+	}
+}( typeof global !== "undefined" ? global : this ) );
+</script>
+
+    <link rel="icon" href="/assets/qiyu.jpg">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script">
+    <link rel="preload" href="/scripts/main.js" as="script">
+    <link rel="preload" as="font" href="/font/Oswald-Regular.ttf" crossorigin>
+    <link rel="preload" as="font" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" crossorigin>
+    
+    <!-- fancybox -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" defer></script>
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  -->
+    
+</head>
+
+    
+        <body class="post-body">
+    
+    
+<header class="header">
+
+    <div class="read-progress"></div>
+    <div class="header-sidebar-menu">&#xe775;</div>
+    <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/">Keep Calm Keep Going</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">An Easy Crypto</a>
+            </div>
+    </div>
+    
+    <a class="home-link" href="/">Keep Calm Keep Going</a>
+</header>
+    <div class="wrapper">
+        <div class="site-intro" style="
+
+
+
+
+
+
+
+height:50vh;
+">
+    
+    <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
+            
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+            An Easy Crypto
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+            
+            <!-- 404 -->
+            
+        </p>
+        <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">638</span>阅读时长: <span class="post-count reading-time">3 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2019/04/30</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+        
+    </div>
+</div>
+        <script>
+ 
+  // get user agent
+  var browser = {
+    versions: function () {
+      var u = window.navigator.userAgent;
+      return {
+        userAgent: u,
+        trident: u.indexOf('Trident') > -1, //IE内核
+        presto: u.indexOf('Presto') > -1, //opera内核
+        webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+        mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+        iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+        iPad: u.indexOf('iPad') > -1, //是否为iPad
+        webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+        weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+        uc: u.indexOf('UCBrowser') > -1 //是否为android下的UC浏览器
+      };
+    }()
+  }
+  console.log("userAgent:" + browser.versions.userAgent);
+
+  // callback
+  function fontLoaded() {
+    console.log('font loaded');
+    if (document.getElementsByClassName('site-intro-meta')) {
+      document.getElementsByClassName('intro-title')[0].classList.add('intro-fade-in');
+      document.getElementsByClassName('intro-subtitle')[0].classList.add('intro-fade-in');
+      var postIntros = document.getElementsByClassName('post-intros')[0]
+      if (postIntros) {
+        postIntros.classList.add('post-fade-in');
+      }
+    }
+  }
+
+  // UC不支持跨域，所以直接显示
+  function asyncCb(){
+    if (browser.versions.uc) {
+      console.log("UCBrowser");
+      fontLoaded();
+    } else {
+      WebFont.load({
+        custom: {
+          families: ['Oswald-Regular']
+        },
+        loading: function () {  //所有字体开始加载
+          // console.log('loading');
+        },
+        active: function () {  //所有字体已渲染
+          fontLoaded();
+        },
+        inactive: function () { //字体预加载失败，无效字体或浏览器不支持加载
+          console.log('inactive: timeout');
+          fontLoaded();
+        },
+        timeout: 5000 // Set the timeout to two seconds
+      });
+    }
+  }
+
+  function asyncErr(){
+    console.warn('script load from CDN failed, will load local script')
+  }
+
+  // load webfont-loader async, and add callback function
+  function async(u, cb, err) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (cb) { o.addEventListener('load', function (e) { cb(null, e); }, false); }
+    if (err) { o.addEventListener('error', function (e) { err(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  var asyncLoadWithFallBack = function(arr, success, reject) {
+      var currReject = function(){
+        reject()
+        arr.shift()
+        if(arr.length)
+          async(arr[0], success, currReject)
+        }
+
+      async(arr[0], success, currReject)
+  }
+
+  asyncLoadWithFallBack([
+    "https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js", 
+    "https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js",
+    "/lib/webfontloader.min.js"
+  ], asyncCb, asyncErr)
+</script>        
+        <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+        <div class="container container-unloaded">
+            <main class="main post-page">
+    <article class="article-entry">
+        <h1 id="rwx"><a href="#rwx" class="headerlink" title="rwx"></a>rwx</h1><p>公司月赛一道crypto题目rwx，给了加密的代码和输出结果两个文件</p>
+<p>加密rwx.py代码:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">from flag import flag</span><br><span class="line">from Crypto.Util.number import long_to_bytes,bytes_to_long</span><br><span class="line">from os import urandom</span><br><span class="line">import hashlib</span><br><span class="line"></span><br><span class="line">def know(m):</span><br><span class="line">    r=[]</span><br><span class="line">    w=[]</span><br><span class="line">    x=[]</span><br><span class="line">    e=[]</span><br><span class="line">    for i in m:</span><br><span class="line">        r.append(bin(ord(i))[-1])</span><br><span class="line">        w.append(bin(ord(i))[-2])</span><br><span class="line">        x.append(bin(ord(i))[-3])</span><br><span class="line">        e.append(ord(i)&gt;&gt;3)</span><br><span class="line">    return r,w,e,x</span><br><span class="line"></span><br><span class="line">def inf(r,w,x,files):</span><br><span class="line">    re=[]</span><br><span class="line">    for i in range(len(files)):</span><br><span class="line">        re.append(long_to_bytes(int(bin(bytes_to_long(files[i]))[2:]+r[i]+w[i]+x[i],2)))</span><br><span class="line">    return re</span><br><span class="line"></span><br><span class="line">r,w,e,x=know(flag)</span><br><span class="line">files=[]</span><br><span class="line">f=open(&quot;output&quot;,&quot;wb&quot;)</span><br><span class="line">for i in range(len(flag)):</span><br><span class="line">    files.append(urandom(8))</span><br><span class="line">for i in files:</span><br><span class="line">    f.write(i.encode(&quot;hex&quot;)+&quot;\n&quot;)</span><br><span class="line">files=inf(r,w,x,files)</span><br><span class="line">for i in files:</span><br><span class="line">    f.write(hashlib.sha256(i).hexdigest()+&quot;\n&quot;)</span><br><span class="line">for i in e:</span><br><span class="line">    f.write(hashlib.sha256(str(i)+urandom(2)).hexdigest()+&quot;\n&quot;)</span><br><span class="line"></span><br><span class="line">print r</span><br><span class="line">print w</span><br><span class="line">print x</span><br><span class="line">print e</span><br></pre></td></tr></table></figure></p>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>加密的逻辑非常简单，主要是两部分，rwx和e</p>
+<ul>
+<li>flag输入到know函数，在函数中会一个字符一个字符处理flag，rwx是截取得来，e是移位得来。</li>
+<li>files为一个8byte随机数组成的数组，长度和flag相同，files的hex保存在out中</li>
+<li>files从每一位都和rwx拼接之后sha256存入out</li>
+<li>最后e和2byte随机数拼接sha256放入out</li>
+</ul>
+<p>整个的逻辑非常之简单，看到hash那基本上就是要 <strong>爆破</strong> 了。rwx的取值是1或者0。e是ascii码取值右移3位，取值0到16。所以我们要爆破的范围是3个bit位加上2个半byte，比较快的。</p>
+<p>output:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br></pre></td><td class="code"><pre><span class="line">abb490d5efe69766</span><br><span class="line">a42c15dd0717102b</span><br><span class="line">ee0d2fc5c7351947</span><br><span class="line">4876242f69135f77</span><br><span class="line">f7f7e8648cf39204</span><br><span class="line">594b5fb7c4396a5d</span><br><span class="line">5b254e10bc3f2e83</span><br><span class="line">d27b465c51cb56aa</span><br><span class="line">02fde9f77e201f13</span><br><span class="line">5a5a717c5610113c</span><br><span class="line">0228c96208f04be7</span><br><span class="line">1f21b57c69e164c6</span><br><span class="line">eb9ff8ed6de6ae5a</span><br><span class="line">e9ff62161ebfd07f</span><br><span class="line">fc92701a784575fb</span><br><span class="line">246fb05d1f5a6f74</span><br><span class="line">91a9a630e9e91e8b</span><br><span class="line">c27160d38c8b8247</span><br><span class="line">4b473325d4de665c</span><br><span class="line">d1c1b9a58ca6d1e5</span><br><span class="line">818cf44df4d7b088</span><br><span class="line">569014c59066b916</span><br><span class="line">408fb2edb34c77a9</span><br><span class="line">d24576a95ddc151c</span><br><span class="line">9284b46648b92a5c</span><br><span class="line">073f776f6a36eb4a</span><br><span class="line">1b9a6ff58b537364</span><br><span class="line">9a327f0ff86f7687</span><br><span class="line">be0fe6df6ce0726f</span><br><span class="line">98734efb617a527b</span><br><span class="line">3e0e772fd9669166</span><br><span class="line">af8f0e61263ad605</span><br><span class="line">326c9434cc213d55</span><br><span class="line">5d6df6d0425fd13c</span><br><span class="line">c798fca9337f4e09</span><br><span class="line">b8b44901c1e2847c</span><br><span class="line">39c7932c6c9565d8</span><br><span class="line">0df12d3f4023f6cf</span><br><span class="line">df47f8efee88f469</span><br><span class="line">92bbcc351d041479</span><br><span class="line">77b55a5574fa0830</span><br><span class="line">24b60c00c2cda9c2</span><br><span class="line">3c00ce8fad4bdb0e</span><br><span class="line">3368003bfbca99e727ddfe6de1976fe7133392ddcf1e9b858af76aec41a3a0d6</span><br><span class="line">e5cf55af23a0c8b42b4d9f22d1c9dfc2b04a22c0202cd35c783bbf9b82e79525</span><br><span class="line">54ad655d2f450d96eb0198dd620758cbddc8987656b195df04a5e254447e9f19</span><br><span class="line">d093a5e18283d59816ed32156eaaabe64fc2575bc3cee6b4fccf6325d4b669a3</span><br><span class="line">8d32f93d356a459e8c2807c91ab52581c2d3ea225187b8fc2b7d6dc0dbf81500</span><br><span class="line">8778e6d1901c10b1d1090c32cef6aeb36702d37dceac8c0e5a16356473f82a15</span><br><span class="line">090bfe2dd0be43160b406e6b33845c6c5bde6bf47d466d26b7f69ea896eddfdd</span><br><span class="line">91e3ece70e184e3f768925751fb5a0c2cf9369d6bc268464cd2737af38dea781</span><br><span class="line">f16f4fae20ae181dc5a332e423a2a79fb3e2d28f072cb7ba2f8a0b29e2c1c698</span><br><span class="line">b5efdd3705fcf45d3b330202e0387ab9d24c1b79af9577ba0563b669d420723d</span><br><span class="line">d31afdf0eb4149e516658867b07b3032ec3d685f2eb68a565249f4f439a688fa</span><br><span class="line">ac039fae367745a39019561e4f9f953068d0b4639c19a5eaf7a05abc46e734e0</span><br><span class="line">f09637c3a24c14ad0d4fd442ede44009f85f898d506f9ba7a8563650cc4068e5</span><br><span class="line">4bedd3d498e83bd16f363a3eaed9209d1b700f63eeb6f96f775d97ab31cac5f8</span><br><span class="line">33c37802ce6c6dc22d15e60b62e68649ac2d2888ec1ea6fc8c44e01d9869dd75</span><br><span class="line">b5610f79b982ce4666b0df76539cfd74255a00aca06d08acd05eaa7d60084a1c</span><br><span class="line">24a8467f30d49602dc24318cd0665ea57b3333ed22aefde5f161a5f3044272bd</span><br><span class="line">4b1b131e729d9bd102bd27ced202f6d5d800c2c17969c04a30bc7ad29664e59a</span><br><span class="line">19429fd0d54ccf175abd9c4ecc7f24de183f5fee5193c5e895638dcda6a8bc27</span><br><span class="line">6ce1410665315540b25e34c0f1e058567d88ef4fa91e710114f20d62114fd550</span><br><span class="line">fec593226268610fbbc5352d0fb1f41b79a77eab3a2429f731feebaeb23841f7</span><br><span class="line">33935fb947103ab453057052223fd5958a8897b665c8b3650b5cfaf1d8cccdc7</span><br><span class="line">888b1eb7a6d29dc1cef64e6cc539d68b024c109736915630d5ddacc9c636851f</span><br><span class="line">9970385c755daf6275142edb885d03506a738762bf5bfa957f9aadb31f31cb7a</span><br><span class="line">c5ff5de1968b6458758a641d70525d098272c714840e0c2057ba8ec05d531b63</span><br><span class="line">2c208eb6a63a5beca0488ee83d4e5f0eedcc29227f6f25cddd169e87bd07a320</span><br><span class="line">b1d6e133e07eacfa6fbdcd9178344a861599d73c0aa1480b7b0bd7335736d665</span><br><span class="line">aefbae60c94eea15bfbc7a2824f7032b2740f95e19460bde15aae20cae0722ca</span><br><span class="line">6bdfea1b95fd48f168d545e409626e783c272b12b0895cbd17564dbbcf2da66f</span><br><span class="line">02a1b05474d3a86672f76712f0338a00ce95af62b7c6d2aca5492d3d7a8c7305</span><br><span class="line">3a011998e70fe4460f0acdec68a77933b41f6efbad345e66b18cf014cd88af88</span><br><span class="line">cd0fdb32c3e60912b54a2c1f26df90c3243626f636a9c498acbebcbcc2cbebbc</span><br><span class="line">87dc8336d829915f3f98709041cfa033be859e2b1ace2c9478e26c457e4aadc0</span><br><span class="line">d2e84a52aa49ed36237c81ea9f2ff66ca9d48d406df092535971601e80ec31d1</span><br><span class="line">042025bb6c7535549c2cb536a04125348c48454ac6a8210cfef8a71e50813aff</span><br><span class="line">436308db651644f181d02c1b90368c150f5499836d71e6b7ae8e8334811a258e</span><br><span class="line">5b8b9c76b17324ef5f35692b9ee069ec3c6135b1725bb82900bf3fbe953e0586</span><br><span class="line">0506511cdc9561f76e5d85d147120fd746668b043f5a71760148008ebe37d9f0</span><br><span class="line">6d89ad6b0a094a7f9a9bf4ee1ca2f3b0e5ec56f924b7efeb16fbdfbfd41358d3</span><br><span class="line">25019aa8cec744ea6937729fd454100c6f5a589284b007c645c6d7c6ef58c8bc</span><br><span class="line">39322232c9118f9541f6432913384444309fd10a0f627c9ecc2f95309701ab13</span><br><span class="line">115a84ee3ac24122fd5482b0f7eb900ce99382ca41777cc2577c82cec766cab0</span><br><span class="line">ed9f6161c423f30cc7ceac974ae5e432e755f08cb79b47ce3d43452dcf74c76c</span><br><span class="line">a3df8f1e5dd063595188044473fa1c2bc69eec2e29bafaeeb3962c2750585fca</span><br><span class="line">3f8bb91ade38f8e0b0e269a57191d70cf60ac2db4c79518e79b48c08a737f6cb</span><br><span class="line">439190a055187e9c9a0120ed91b15365f716330c8df21cadcf14f6ea0f35b4b8</span><br><span class="line">dd1ce000a01a41ead05d03d74e184345aa1340c14873d75bf99275b6042c66a5</span><br><span class="line">5e2002006de48dc19d2116bd6de751ede5bdcfd96bfafbc41d9a227b06c8f7e6</span><br><span class="line">d05a972e1fa0d36533c88c3d6f51175df426ab3ad3950cbd82fe789907de7178</span><br><span class="line">e108856d6e85ea36e8b0330a5b62489ce939c11f0e3aa673327eef4c87adfdf9</span><br><span class="line">0f673f6397808e53248ce5778e31d669ad9ddcdd4c732a3dcea05a3c03322972</span><br><span class="line">2c6d0af5b1ea6178d647eaad2a41f76bdf0111dce813b136262ab9cbd1a042da</span><br><span class="line">2c4b24bc7213bd16739ac23b0988e27ea3b52fbf87b7c3648cae97d3535449d2</span><br><span class="line">accea9e2c218217fc967bd11d772c442adf4cfbaf6d81c57e13eda48c907a584</span><br><span class="line">befe454b22b4eb940732ab972657e474c211d6d9dfcddd34f68d9628b32d61fe</span><br><span class="line">fc1090ba15ccae04a9648183bfd9050e5513d98035af00a83e9a371bcff72512</span><br><span class="line">d85b886abcdc31f028a2be8fdfa31ef3510c4b7f099baa0f15b9308493f3d2a7</span><br><span class="line">2e631a9a04bf11d2354df921e482d6059684cc746ca1725b6d62952739c75ade</span><br><span class="line">31dcc3a2dd334474173f6d16adcd3546736ddea1dda53d7ae7120bc5bcbc12f1</span><br><span class="line">11d699bf7dcc57780f5b4217b4a6f777c0c4cdbd4269bf76b3daa5b6a6901fcb</span><br><span class="line">02ae1e11650bf5ea33b0f2b9a65e830a0e4ff33b64be2f84eb0c89aeea0718fb</span><br><span class="line">e3d6ba04b3583099db6095205e50eaf338260cbd97c77c3b3d9058522f108892</span><br><span class="line">81f062c17993b7266ce990b4d115721973958d5f81a9f24fa5e7c718b4bfd1be</span><br><span class="line">9dbb8f5215d43034aff34bcb3a2cb950b76c5dc78320bf729739f28c2316c381</span><br><span class="line">b5ce8e8ca3b8e872f7640f0980af6aec31cb8549f48911081264b87c94ed9a16</span><br><span class="line">70cdeb42324021d98cb408f2e0e2425a4be90d6b263a44f05e65af40c842a105</span><br><span class="line">ef679767995bfa61402bf90cd697f388199ed92b24e5a1cd67485f9951b73bf0</span><br><span class="line">ccfb009cacb758e3ed525b4941c61e973d7bc2bc079c3a2bd089f85fbf634a2f</span><br><span class="line">f367d169e7fed794e76f711a4f75c0dbf8ac9426f1da48374bc86f179487d83a</span><br><span class="line">90e786a6c635b110c1a9e8b717809b665d2ea91cf0851e8615ea276628544a6d</span><br><span class="line">926cc73a86228b74a4ef8a386c2ecd56c7ed1c8979f2437dd53aa8c1a15b5513</span><br><span class="line">32e8b07e1f7bb7da7012fff02cdcf84971d976fe056ddba651731657c7bce278</span><br><span class="line">dbd86282a86ce7523cc2920ecd87070f46f436f4c9436667599fff95b0ebdc1b</span><br><span class="line">4ab6a0ad4b50df2e2a178576f4aae0c7289ea00385b9d29be0c4e3b2921b5f2d</span><br><span class="line">1b9a6ed279789ca017162f12586aef68f0d55acbbfb85f7a0ea294ff22a2eacf</span><br><span class="line">07fc3be55d5d43dcb80f69121d6847aa0d093d4d4f723017ef75ab5b09ec555b</span><br><span class="line">efb6468f620d1a0dd71ddfdc66b1a5145a1666c07729db8cba93ccadf66d6363</span><br><span class="line">25164ae1c0e8c1f6243fb7761310c398c607b3be6ff0cdc41fa7583288cece47</span><br><span class="line">01baccd7e9415275d8e9f797b90362496935e279d02bcf68e5bcd89577688934</span><br><span class="line">e6bb9d20c9f7b528dcf323143fde093be6859b63583e58fbe0c319d5f6104cfd</span><br><span class="line">048856baa298e3d69421db8f4777fd44756f25933484edf6574f1ad0c3a35d6a</span><br><span class="line">0799af8cad7311dd6c27f07a1b13e57eb81d9ff79520b05428d6599105d41c37</span><br><span class="line">f34f86804facfee48869f64b42b2f507fab255425001d368078bae02ae660f21</span><br><span class="line">dc658b6bef96c02fd9ddcf1aaa442a5994c4789cc6ab76b2e592a36e0f61e205</span><br><span class="line">8852c503f1fe03706f3a6afffed6f5ad6a9f375f7ef430fc29ecbefc7696d28c</span><br><span class="line">62a37ed7404473449d756a1750ff5d65de9b3e27e10367e63a25e38681a144d3</span><br></pre></td></tr></table></figure></p>
+<h2 id="脚本"><a href="#脚本" class="headerlink" title="脚本"></a>脚本</h2><p>逻辑非常清晰，但是脚本非常坑。类型和进制转换非常地麻烦，搞了好长时间才搞定。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">from Crypto.Util.number import long_to_bytes,bytes_to_long</span><br><span class="line">from os import urandom</span><br><span class="line">import hashlib</span><br><span class="line">f=open(&apos;files&apos;,&apos;r&apos;)</span><br><span class="line">g=open(&apos;rwx&apos;,&apos;r&apos;)</span><br><span class="line">rwxc = []</span><br><span class="line">for eachline in f:</span><br><span class="line">    files=eachline[:-1].decode(&quot;hex&quot;)</span><br><span class="line">    rwx=&apos;000&apos;</span><br><span class="line">    rwx=int(rwx)</span><br><span class="line">    check=g.readline()</span><br><span class="line">    #print check</span><br><span class="line">    while rwx&lt;8:</span><br><span class="line">        re=long_to_bytes(int(bin(bytes_to_long(files))[2:]+bin(rwx)[2:].zfill(3),2))</span><br><span class="line">        re = hashlib.sha256(re).hexdigest()+&quot;\n&quot;</span><br><span class="line">        if check==re:</span><br><span class="line">            result = bin(rwx)[2:].zfill(3)</span><br><span class="line">            print result[::-1]</span><br><span class="line">            rwxc.append(result[::-1])</span><br><span class="line">        rwx = rwx+1</span><br><span class="line">print rwxc</span><br><span class="line">f.close()</span><br><span class="line">g.close()</span><br><span class="line"></span><br><span class="line">f=open(&quot;e&quot;,&apos;r&apos;)</span><br><span class="line">eee=[]</span><br><span class="line">for eachline in f:</span><br><span class="line">    print eachline</span><br><span class="line">    for i in range (0,16):</span><br><span class="line">        j=&apos;0000&apos;</span><br><span class="line">        j=j.decode(&quot;hex&quot;)</span><br><span class="line">        ee=str(i)+j</span><br><span class="line">        while j&lt;&apos;\xff\xff&apos;:</span><br><span class="line">            j=int(j.encode(&quot;hex&quot;),16)+1</span><br><span class="line">            j=&apos;&#123;:0&gt;4x&#125;&apos;.format(j)</span><br><span class="line">            j=j.decode(&quot;hex&quot;)</span><br><span class="line">            ee=str(i)+j</span><br><span class="line">            if hashlib.sha256(ee).hexdigest()+&quot;\n&quot;==eachline:</span><br><span class="line">                eee.append(ee[:-2])</span><br><span class="line">                continue</span><br><span class="line">print eee</span><br><span class="line">flags = &apos;&apos;</span><br><span class="line">for i in range(len(eee)):</span><br><span class="line">    flags=flags+ chr(int(bin(int(eee[i]))+rwxc[i],2))</span><br><span class="line"></span><br><span class="line">print flags</span><br></pre></td></tr></table></figure></p>
+<p>字符串、数字、hex、bin来回转换、字符补齐，好多坑。其实根本原因还是自己脚本能力太差了😄</p>
+
+    </article>
+    <!-- license  -->
+    
+        <div class="license-wrapper">
+            <p>原文作者：<a href="http://dawnyang.vip">Dawn Yang</a>
+            </p><p>原文链接：<a href="http://dawnyang.vip/2019/04/30/An-Easy-Crypto/">http://dawnyang.vip/2019/04/30/An-Easy-Crypto/</a>
+            </p><p>发表日期：<a href="http://dawnyang.vip/2019/04/30/An-Easy-Crypto/">April 30th 2019, 3:56:36 pm</a>
+            </p><p>更新日期：<a href="http://dawnyang.vip/2019/04/30/An-Easy-Crypto/">April 30th 2019, 4:33:39 pm</a>
+            </p><p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
+        </div>
+    
+    <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href="/2019/04/20/S2-045/" title="S2-045">
+                    <div class="prevTitle">S2-045</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
+    
+    
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
+</main>
+            <!-- profile -->
+            
+        </div>
+        <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+    <div class="social">
+        
+    
+        
+            
+                <a href="mailto:dawnyangch@gmail.com" class="iconfont-archer email" title="email"></a>
+            
+        
+    
+        
+            
+                <a href="//github.com/dawnyang-cn" class="iconfont-archer github" target="_blank" title="github"></a>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+            
+                <a href="//twitter.com/DawnYang_cn" class="iconfont-archer twitter" target="_blank" title="twitter"></a>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+    </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
+    </div>
+    <!-- 不蒜子  -->
+    
+    <div class="busuanzi-container">
+    
+     
+    <span id="busuanzi_container_site_pv">PV: <span id="busuanzi_value_site_pv"></span> :)</span>
+    
+    </div>
+    
+</footer>
+    </div>
+    <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#rwx"><span class="toc-number">1.</span> <span class="toc-text">rwx</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#分析"><span class="toc-number">1.1.</span> <span class="toc-text">分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#脚本"><span class="toc-number">1.2.</span> <span class="toc-text">脚本</span></a></li></ol></li></ol>
+    </div>
+    
+    <div class="back-top iconfont-archer">&#xe639;</div>
+    <div class="sidebar sidebar-hide">
+    <ul class="sidebar-tabs sidebar-tabs-active-0">
+        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
+        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tag</span></li>
+        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Cate</span></li>
+    </ul>
+    <div class="sidebar-content sidebar-content-show-archive">
+          <div class="sidebar-panel-archives">
+    <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-and-search">
+        <div class="total-archive">
+        Total : 3
+        </div>
+        <!-- search  -->
+        
+    </div>
+    
+    <div class="post-archive">
+    
+    
+    
+    
+    <div class="archive-year"> 2019 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/30</span><a class="archive-post-title" href="/2019/04/30/An-Easy-Crypto/">An Easy Crypto</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/20</span><a class="archive-post-title" href="/2019/04/20/S2-045/">S2-045</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/06</span><a class="archive-post-title" href="/2019/04/06/Wallbreaker-Easy/">Wallbreaker Easy</a>
+        </li>
+    
+    </ul></div>
+  </div>
+        <div class="sidebar-panel-tags">
+    <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name" data-tags="CTF"><span class="iconfont-archer">&#xe606;</span>CTF</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br>
+    1、请确保node版本大于6.2<br>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #787878; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: true
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tags-list"></div>
+</div>
+        <div class="sidebar-panel-categories">
+    <div class="sidebar-categories-name">
+    
+    </div>
+    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="sidebar-categories-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var siteMeta = {
+        root: "/",
+        author: "Dawn Yang"
+    }
+</script>
+    <!-- CDN failover -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        if (typeof window.$ === 'undefined')
+        {
+            console.warn('jquery load from jsdelivr failed, will load local script')
+            document.write('<script src="/lib/jquery.min.js">\x3C/script>')
+        }
+    </script>
+    <script src="/scripts/main.js"></script>
+    <!-- algolia -->
+    
+    <!-- busuanzi  -->
+    
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    <!-- CNZZ  -->
+    
+    </div>
+    <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
+     
+    </body>
+</html>
+
+
